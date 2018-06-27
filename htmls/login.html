@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" rel="stylesheet">
+            <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+            <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    </head>
+    <body style="background-image:url(/image/background.jpg)">
+            <div class="container">
+                       <div class="row" >
+                          <div class="col-md-6 col-md-offset-3" 
+                             style="background-color: #6ae1ffcb">
+                             <form class="form-horizontal" role="form" action="/login_post" method="POST">
+                                    <div class="form-group" style="margin-top:150px">
+                                      <label class="col-sm-2 control-label" style="color:azure">用户名</label>
+                                      <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="username" placeholder="请输入用户名">
+                                      </div>
+                                    </div>
+                                    <div class="form-group">
+                                      <label for="inputPassword" class="col-sm-2 control-label" style="color:azure">密码</label>
+                                      <div class="col-sm-10">
+                                        <input type="password" class="form-control" name="password" placeholder="请输入密码">
+                                      </div>
+                                    </div>
+                                          <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10"> 
+                                              <button type="submit" class="form-control" style="background-color:#caffff">登录</button>
+                                            </div>
+                                          </div>
+                                        
+                             </form>
+                          </div>
+                    
+                       </div>
+            </div>                    
+    </body>
+</html>
