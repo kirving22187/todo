@@ -24,9 +24,7 @@ router.get('/login', function(req, res) {
 
 //注销
 router.get('/logout', function(req, res) {
-    console.log('hello')
     sessionStorage.removeItem('userState');
-    console.log('hello')
     res.sendFile(__dirname + "/htmls/" + "login.html");
 })
 
@@ -41,9 +39,7 @@ router.get('/home', function(req, res) {
 
 })
 
-//
 
-//表单提交数据处理
 
 //登陆
 router.post('/login_post', urlencodedParser, function(req, res) {

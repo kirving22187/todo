@@ -57,7 +57,7 @@
                     <li v-for="thing,index in lists[listIndex].thing" style="height:50px;font-size:20px;line-height:50px" v-if="thing.done===false">
                         <span>{{thing.name}}</span>
                         <button class="btn btn-primary pull-right" @click="toUp(index)">置顶</button>
-                        <button class="btn btn-primary pull-right" @click="changeState(index)">更改</button>
+                        <button class="btn btn-primary pull-right" @click="changeState(index)">设为已完成</button>
                         <button class="btn btn-primary pull-right" @click="editThing(index)">编辑</button>
                     </li>
                     <li><input type="text" class="form-control" v-model="thingName" @keyup.Enter="addThing()" style="width:80%;"><button class="btn btn-primary" @click="readyEditThing()">确认修改</button></li>
@@ -71,7 +71,7 @@
                     <li v-for="thing,index in lists[listIndex].thing" style="height:50px;font-size:20px;line-height:50px" v-if="thing.done===true">
                         <span>{{thing.name}}</span>
                         <button class="btn btn-primary pull-right" @click="toUp(index)">置顶</button>
-                        <button class="btn btn-primary pull-right" @click="changeState(index)">更改</button>
+                        <button class="btn btn-primary pull-right" @click="changeState(index)">设为未完成</button>
                         <button class="btn btn-primary pull-right" @click="editThing(index)">编辑</button>
                     </li>
                     <!-- <li><input type="text" class="form-control" v-model="thingName" @keyup.Enter="addThing()"></li> -->
@@ -161,7 +161,7 @@
                 },
                 readyEditThing:function(){
                     this.lists[this.listIndex].thing[this.thingsIndex].name=this.thingName;
-                    this.thingName='';
+                    this.thingName=''; 
                 },
                 changeThemeState:function(){
                     if(this.ischange===false){
@@ -187,7 +187,18 @@
                     
                     return searchResult;
                 }
-            }
+            },
+            		//created
+			created() {
+                if (localStorage.getItem('tablesBackup')) {
+                    this.lists = JSON.parse(localStorage.getItem("tablesBackup"));
+                }
+            },
+            //updated
+            updated() {
+                localStorage.setItem('tablesBackup', JSON.stringify(this.lists));
+				}
+            
         })
     </script>
 </html>
